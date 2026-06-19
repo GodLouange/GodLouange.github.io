@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>God-Louange Thombet-Kende — Data Analyst</title>
+<meta name="description" content="Profil professionnel de God-Louange Thombet-Kende, apprenti Data Analyst (BUT Science des Données). Python, SQL, Power BI, Talend ETL, R. Compétences, parcours et projets data.">
+<style>
+  :root{
+    --bg:#0f1115;
+    --bg-soft:#161a21;
+    --card:#1a1f28;
+    --line:#262c38;
+    --text:#e7eaf0;
+    --muted:#9aa3b2;
+    --accent:#c9a35b;       /* or doux, élégant */
+    --accent-soft:#e3c98a;
+    --radius:14px;
+    --maxw:1080px;
+    --font: "Inter","Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* BACKGROUND ANIMÉ */
+  #bg-canvas{
+    position:fixed;inset:0;width:100%;height:100%;
+    z-index:0;pointer-events:none;display:block;
+  }
+  .bg-overlay{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(circle at 15% 10%, rgba(201,163,91,.10), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(201,163,91,.07), transparent 45%);
+  }
+  /* le contenu passe au-dessus de l'animation */
+  header.nav, section, footer{position:relative;z-index:2}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{padding:96px 0}
+  h2.section-title{
+    font-size:clamp(1.6rem,3vw,2.2rem);
+    font-weight:700;
+    letter-spacing:-.02em;
+    margin-bottom:8px;
+  }
+  .section-title .num{color:var(--accent);font-size:1rem;font-weight:600;margin-right:10px;vertical-align:middle}
+  .section-sub{color:var(--muted);margin-bottom:48px;max-width:620px}
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(15,17,21,.72);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:700;letter-spacing:-.01em}
+  .logo span{color:var(--accent)}
+  nav.links{display:flex;gap:30px}
+  nav.links a{color:var(--muted);font-size:.92rem;transition:color .2s}
+  nav.links a:hover{color:var(--text)}
+  .btn{
+    display:inline-block;padding:11px 22px;border-radius:999px;
+    font-weight:600;font-size:.92rem;transition:transform .15s,box-shadow .2s,background .2s;
+  }
+  .btn-primary{background:var(--accent);color:#1a1407}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(201,163,91,.25)}
+  .btn-ghost{border:1px solid var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* HERO */
+  .hero{padding:120px 0 90px;position:relative;overflow:hidden}
+  .hero:before{
+    content:"";position:absolute;top:-200px;right:-120px;width:520px;height:520px;
+    background:radial-gradient(circle,rgba(201,163,91,.16),transparent 65%);z-index:0;
+  }
+  .hero-inner{position:relative;z-index:1;max-width:780px}
+  .eyebrow{color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem;margin-bottom:18px}
+  .hero h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-bottom:22px}
+  .hero h1 em{color:var(--accent);font-style:normal}
+  .hero p.lead{font-size:1.15rem;color:var(--muted);max-width:600px;margin-bottom:36px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:start}
+  .about-photo{position:relative}
+  .about-photo img{
+    width:100%;display:block;border-radius:var(--radius);
+    aspect-ratio:4/5;object-fit:cover;object-position:50% 35%;
+    border:1px solid var(--line);
+    box-shadow:0 24px 60px rgba(0,0,0,.45);
+  }
+  .about-photo:before{
+    content:"";position:absolute;inset:-10px -10px 14px 14px;z-index:-1;
+    border:1px solid var(--accent);border-radius:var(--radius);opacity:.5;
+  }
+  .about-text p{color:var(--muted);margin-bottom:18px}
+  .about-text strong{color:var(--text)}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .fact .k{color:var(--accent);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:4px}
+  .fact .v{font-weight:600}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .skill-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:transform .2s,border-color .2s}
+  .skill-card:hover{transform:translateY(-4px);border-color:var(--accent)}
+  .skill-card h3{font-size:1.05rem;margin-bottom:14px}
+  .xp-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+  .xp-head h3{margin-bottom:0;font-size:1.02rem;line-height:1.25}
+  .xp-head .tl-date{margin-bottom:2px}
+  .xp-logo{
+    position:relative;
+    flex:0 0 48px;width:48px;height:48px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 14px rgba(0,0,0,.3);overflow:hidden;
+  }
+  /* logo officiel : s'affiche s'il est présent dans /logos, sinon repli sur le badge */
+  .xp-logo-img{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:contain;padding:6px;background:#fff;border-radius:12px;
+  }
+  .skill-card .icon{width:42px;height:42px;border-radius:10px;background:rgba(201,163,91,.12);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:700;margin-bottom:16px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-size:.8rem;color:var(--muted);background:var(--bg-soft);border:1px solid var(--line);padding:5px 11px;border-radius:999px}
+
+  /* EXPERIENCE */
+  .timeline{position:relative;border-left:2px solid var(--line);margin-left:8px}
+  .tl-item{position:relative;padding:0 0 40px 34px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item:before{content:"";position:absolute;left:-9px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(201,163,91,.15)}
+  .tl-date{color:var(--accent);font-size:.82rem;font-weight:600;margin-bottom:4px}
+  .tl-item h3{font-size:1.1rem}
+  .tl-item .org{color:var(--muted);font-size:.92rem;margin-bottom:10px}
+  .tl-item p{color:var(--muted);font-size:.95rem}
+
+  /* PROJECTS */
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .proj{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+  .proj:hover{transform:translateY(-4px);border-color:var(--accent)}
+  .proj .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .proj .top .arrow{color:var(--muted);transition:color .2s}
+  .proj:hover .top .arrow{color:var(--accent)}
+  .proj h3{font-size:1.15rem;margin-bottom:10px}
+  .proj p{color:var(--muted);font-size:.95rem;flex:1;margin-bottom:18px}
+
+  /* CONTACT */
+  .contact{text-align:center;background:rgba(22,26,33,.72);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .contact h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-.02em;margin-bottom:16px}
+  .contact p{color:var(--muted);max-width:520px;margin:0 auto 32px}
+  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* FOOTER */
+  footer{padding:32px 0;text-align:center;color:var(--muted);font-size:.85rem}
+
+  /* ===== Améliorations JS (états visuels) ===== */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}
+  .reveal.d2{transition-delay:.16s}
+  .reveal.d3{transition-delay:.24s}
+
+  nav.links a.active{color:var(--accent)}
+  nav.links a{position:relative}
+  nav.links a:after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:2px;background:var(--accent);transition:right .3s ease}
+  nav.links a.active:after,nav.links a:hover:after{right:0}
+
+  header.nav.scrolled{box-shadow:0 8px 30px rgba(0,0,0,.35)}
+  header.nav.scrolled .nav-inner{height:56px}
+  .nav-inner{transition:height .3s ease}
+
+  /* barre de progression de lecture */
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
+    background:linear-gradient(90deg,var(--accent),var(--accent-soft));box-shadow:0 0 12px rgba(201,163,91,.5)}
+
+  /* effet de relief au survol (tilt) */
+  .skill-card,.proj{transition:transform .25s cubic-bezier(.2,.7,.2,1),border-color .2s,box-shadow .25s;transform-style:preserve-3d;will-change:transform}
+  .skill-card:hover,.proj:hover{box-shadow:0 18px 40px rgba(0,0,0,.4)}
+
+  /* curseur clignotant du héro */
+  .hero h1 .cursor{display:inline-block;width:3px;height:.9em;background:var(--accent);margin-left:4px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .hero h1 .cursor{display:none}
+  }
+
+  @media(max-width:860px){
+    .about-grid{grid-template-columns:1fr;gap:32px}
+    .skills-grid{grid-template-columns:1fr}
+    .proj-grid{grid-template-columns:1fr}
+    nav.links{display:none}
+    section{padding:72px 0}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<canvas id="bg-canvas"></canvas>
+<div class="bg-overlay"></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">God-Louange<span>.</span> Thombet-Kende</a>
+    <nav class="links">
+      <a href="#about">À propos</a>
+      <a href="#skills">Compétences</a>
+      <a href="#experience">Parcours</a>
+      <a href="#experiences">En parallèle</a>
+      <a href="#projects">Projets</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary">Me contacter</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Apprenti Data Analyst · Développeur Full-Stack</p>
+    <h1>Je transforme la donnée en <em>décisions</em>.</h1>
+    <p class="lead">Étudiant en BUT Science des Données (parcours VCOD), je conçois des pipelines, des analyses et des outils décisionnels fiables — de la base de données au tableau de bord. Python, SQL, Power BI et Talend au service de la donnée.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+      <a href="#contact" class="btn btn-ghost">Travaillons ensemble</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <h2 class="section-title"><span class="num">01</span>À propos</h2>
+    <p class="section-sub">Un aperçu de qui je suis et de ma façon de travailler.</p>
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="profil.jpg" alt="God-Louange au travail">
+      </div>
+      <div class="about-text">
+        <p>Je suis <strong>God-Louange Thombet-Kende</strong>, étudiant en <strong>BUT 2 Science des Données</strong> (parcours VCOD — Visualisation & Conception d'Outils Décisionnels) à l'IUT d'Aurillac, en recherche d'alternance comme <strong>Data Analyst</strong>.</p>
+        <p>Mes deux expériences en développement Python/Django et en administration de bases Oracle/SQL Server m'ont appris à manipuler la donnée de bout en bout : extraction, traitement, restitution. Je les complète d'une pratique solide de <strong>SQL, R, Power BI et Talend ETL</strong> acquise en formation.</p>
+        <p>Rigueur, autonomie et curiosité technique guident ma façon de travailler — du recueil du besoin jusqu'à la livraison d'un outil décisionnel fiable.</p>
+        <div class="facts">
+          <div class="fact"><div class="k">Recherche</div><div class="v">Alternance Data Analyst</div></div>
+          <div class="fact"><div class="k">Localisation</div><div class="v">Aurillac · Mobilité Paris</div></div>
+          <div class="fact"><div class="k">Langues</div><div class="v">Français natif · Anglais B1</div></div>
+          <div class="fact"><div class="k">Focus</div><div class="v">Data · Analytics · BI</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background:rgba(22,26,33,.72)">
+  <div class="wrap">
+    <h2 class="section-title"><span class="num">02</span>Compétences</h2>
+    <p class="section-sub">Les technologies et savoir-faire sur lesquels je m'appuie au quotidien.</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="icon">&lt;/&gt;</div>
+        <h3>Langages</h3>
+        <div class="tags">
+          <span class="tag">Python ★★★★</span>
+          <span class="tag">SQL / Oracle ★★★★</span>
+          <span class="tag">R ★★★</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Java / C#</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="icon">▤</div>
+        <h3>Data & BI</h3>
+        <div class="tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">Talend ETL</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">Azure Databricks</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="icon">⚙</div>
+        <h3>Bases & Méthodes</h3>
+        <div class="tags">
+          <span class="tag">Oracle</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">Modélisation · MDM</span>
+          <span class="tag">Git / GitHub</span>
+          <span class="tag">Tests · BAU</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <h2 class="section-title"><span class="num">03</span>Parcours</h2>
+    <p class="section-sub">Mes expériences professionnelles et ma formation.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Jan – Juil 2025</div>
+        <h3>Développeur Web Full-Stack — Projets Data & Backend</h3>
+        <div class="org">CIRAS — Centre d'Informatique de Recherche · Brazzaville</div>
+        <p>Développement d'applications data-driven en Python/Django et SQL : intégration, traitement et restitution de données métier. Conception de requêtes SQL complexes pour l'extraction et la consolidation multi-sources. Tests fonctionnels, correction de bugs et livraison de modules en production, en équipe pluridisciplinaire.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Juin – Oct 2024</div>
+        <h3>Administrateur Assistant de Bases de Données — Oracle & SQL Server</h3>
+        <div class="org">CFI-CIRAS — Centre de Formation en Informatique · Brazzaville</div>
+        <p>Administration et optimisation de bases Oracle et SQL Server : tuning de requêtes, indexation, performance. Modélisation et évolution du modèle de données, gestion des utilisateurs et des droits d'accès. Support utilisateurs sur les applications métier, dans une logique Business-As-Usual (BAU).</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2025 — 2026</div>
+        <h3>BUT 2 Science des Données — Parcours VCOD</h3>
+        <div class="org">Université Clermont Auvergne · IUT Aurillac</div>
+        <p>Outils décisionnels, ETL, Python, R, SQL, Power BI, statistiques et machine learning.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2021 — 2024</div>
+        <h3>Licence Professionnelle Informatique de Gestion</h3>
+        <div class="org">Université CFI-CIRAS · Brazzaville</div>
+        <p>Développement logiciel, bases de données, systèmes d'information et réseaux. Certifications Cisco IT Essentials & CCNA · Anglais B1.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPÉRIENCES EN PARALLÈLE -->
+<section id="experiences" style="background:rgba(22,26,33,.72)">
+  <div class="wrap">
+    <h2 class="section-title"><span class="num">04</span>En parallèle de mes études</h2>
+    <p class="section-sub">Des expériences de terrain qui ont forgé ma rigueur, mon sens du service et ma capacité à travailler en équipe sous pression.</p>
+    <div class="proj-grid">
+      <div class="skill-card">
+        <div class="xp-head">
+          <div class="xp-logo" style="background:#DA291C">
+            <img class="xp-logo-img" src="logos/mcdonalds.png" alt="McDonald's" onerror="this.remove()">
+            <svg viewBox="0 0 64 48" width="30" height="22" aria-label="McDonald's">
+              <path fill="#FFC72C" d="M10 46 V24 Q10 8 20 8 Q30 8 32 22 Q34 8 44 8 Q54 8 54 24 V46 H46 V24 Q46 16 42 16 Q38 16 38 26 V46 H26 V26 Q26 16 22 16 Q18 16 18 24 V46 Z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="tl-date">2025 — Aujourd'hui</div>
+            <h3>Équipier polyvalent</h3>
+          </div>
+        </div>
+        <div class="org">McDonald's · Aurillac</div>
+        <p>Service, préparation et encaissement en environnement à forte cadence. Travail d'équipe, gestion du rush et relation client au quotidien.</p>
+        <div class="tags"><span class="tag">Esprit d'équipe</span><span class="tag">Gestion du stress</span><span class="tag">Relation client</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="xp-head">
+          <div class="xp-logo" style="background:#FFCB05;color:#004B87;font-weight:800;font-size:.82rem;letter-spacing:.02em"><img class="xp-logo-img" src="logos/mtn.png" alt="MTN" onerror="this.remove()">MTN</div>
+          <div>
+            <div class="tl-date">2022 — 2025</div>
+            <h3>Agent commercial — Vente de cartes SIM</h3>
+          </div>
+        </div>
+        <div class="org">MTN Congo · Brazzaville</div>
+        <p>Commercialisation de cartes SIM et de forfaits auprès des particuliers. Conseil, argumentation et atteinte d'objectifs de vente sur le terrain.</p>
+        <div class="tags"><span class="tag">Vente</span><span class="tag">Négociation</span><span class="tag">Objectifs</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="xp-head">
+          <div class="xp-logo" style="background:linear-gradient(135deg,#0a7d3e,#0fb15a);color:#fff;font-weight:800;font-size:1.1rem"><img class="xp-logo-img" src="logos/batisse.png" alt="Batisse Nettoyage" onerror="this.remove()">B</div>
+          <div>
+            <div class="tl-date">5 mois</div>
+            <h3>Agent de nettoyage des surfaces</h3>
+          </div>
+        </div>
+        <div class="org">Batisse Nettoyage · France</div>
+        <p>Entretien et nettoyage de surfaces dans le respect des protocoles d'hygiène et de sécurité. Rigueur, autonomie et fiabilité.</p>
+        <div class="tags"><span class="tag">Rigueur</span><span class="tag">Autonomie</span><span class="tag">Protocoles</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="xp-head">
+          <div class="xp-logo" style="background:#0055A4;color:#fff;font-weight:800;font-size:.72rem;letter-spacing:.01em"><img class="xp-logo-img" src="logos/leclerc.png" alt="E.Leclerc" onerror="this.remove()">E.<span style="color:#F39200">L</span></div>
+          <div>
+            <div class="tl-date">Missions d'intérim</div>
+            <h3>Employé polyvalent</h3>
+          </div>
+        </div>
+        <div class="org">E.Leclerc · Aurillac</div>
+        <p>Missions d'intérim en grande distribution : mise en rayon et polyvalence. Adaptabilité rapide à de nouveaux environnements de travail.</p>
+        <div class="tags"><span class="tag">Polyvalence</span><span class="tag">Adaptabilité</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <h2 class="section-title"><span class="num">05</span>Projets</h2>
+    <p class="section-sub">Une sélection de projets data, académiques et personnels.</p>
+    <div class="proj-grid">
+      <a class="proj" href="https://github.com/GodLouange" target="_blank" rel="noopener">
+        <div class="top"><span class="tag">ETL</span><span class="arrow">↗</span></div>
+        <h3>Pipelines ETL — Talend Open Studio</h3>
+        <p>Chaînes d'intégration tMap, jointures, JSONPath et appels REST API (Parcoursup). Contextes multiples : fichiers plats, PostgreSQL et API.</p>
+        <div class="tags"><span class="tag">Talend</span><span class="tag">PostgreSQL</span><span class="tag">REST API</span></div>
+      </a>
+      <a class="proj" href="https://github.com/GodLouange" target="_blank" rel="noopener">
+        <div class="top"><span class="tag">Analytics</span><span class="arrow">↗</span></div>
+        <h3>Analyse de performance rugby</h3>
+        <p>Plan d'analyse multi-phases (descriptif, bivarié, temporel, spatial, clustering) sur fichier Sportscode d'un match professionnel.</p>
+        <div class="tags"><span class="tag">R</span><span class="tag">Pandas</span><span class="tag">Clustering</span></div>
+      </a>
+      <a class="proj" href="https://github.com/GodLouange" target="_blank" rel="noopener">
+        <div class="top"><span class="tag">API</span><span class="arrow">↗</span></div>
+        <h3>API de collecte de données</h3>
+        <p>Extraction massive sur API REST avec pagination, gestion d'erreurs robuste et export structuré CSV/JSON.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">REST</span></div>
+      </a>
+      <a class="proj" href="https://github.com/GodLouange" target="_blank" rel="noopener">
+        <div class="top"><span class="tag">Full-Stack</span><span class="arrow">↗</span></div>
+        <h3>Applications data-driven — CIRAS</h3>
+        <p>Applications métier en Python/Django et SQL : intégration, traitement et restitution de données, livrées en production.</p>
+        <div class="tags"><span class="tag">Django</span><span class="tag">SQL</span><span class="tag">Python</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Travaillons ensemble</h2>
+    <p>Je recherche une alternance de Data Analyst. Une opportunité, une question ou simplement envie d'échanger ? Je serais ravi d'en discuter.</p>
+    <div class="contact-links">
+      <a href="mailto:G-Louange.THOMBET-KENDE@etu.uca.fr" class="btn btn-primary">Envoyer un email</a>
+      <a href="tel:+33749828548" class="btn btn-ghost">+33 7 49 82 85 48</a>
+      <a href="https://github.com/GodLouange" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> God-Louange Thombet-Kende — Apprenti Data Analyst.</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ===== Animation de fond : réseau de particules dorées ===== */
+  (function(){
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let w, h, dpr, particles = [], mouse = {x:null, y:null};
+
+    function resize(){
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.width = innerWidth * dpr;
+      h = canvas.height = innerHeight * dpr;
+      canvas.style.width = innerWidth + 'px';
+      canvas.style.height = innerHeight + 'px';
+      const target = innerWidth < 760 ? 36 : 70;   // densité adaptée à l'écran
+      particles = [];
+      for(let i=0;i<target;i++){
+        particles.push({
+          x: Math.random()*w,
+          y: Math.random()*h,
+          vx: (Math.random()-.5)*0.25*dpr,
+          vy: (Math.random()-.5)*0.25*dpr,
+          r: (Math.random()*1.6+0.6)*dpr
+        });
+      }
+    }
+
+    const LINK = 130; // distance de liaison (px logiques)
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      const link = LINK*dpr;
+      for(let i=0;i<particles.length;i++){
+        const p = particles[i];
+        p.x += p.vx; p.y += p.vy;
+        if(p.x<0||p.x>w) p.vx*=-1;
+        if(p.y<0||p.y>h) p.vy*=-1;
+
+        // attraction douce vers la souris
+        if(mouse.x!==null){
+          const dx=mouse.x-p.x, dy=mouse.y-p.y, d=Math.hypot(dx,dy);
+          if(d<160*dpr){ p.x+=dx*0.0012; p.y+=dy*0.0012; }
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle='rgba(201,163,91,0.55)';
+        ctx.fill();
+
+        for(let j=i+1;j<particles.length;j++){
+          const q=particles[j];
+          const dx=p.x-q.x, dy=p.y-q.y, dist=Math.hypot(dx,dy);
+          if(dist<link){
+            ctx.beginPath();
+            ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y);
+            ctx.strokeStyle='rgba(201,163,91,'+(0.16*(1-dist/link))+')';
+            ctx.lineWidth=dpr;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+
+    function staticFrame(){ // version sans mouvement si l'utilisateur préfère
+      ctx.clearRect(0,0,w,h);
+      const link=LINK*dpr;
+      for(let i=0;i<particles.length;i++){
+        const p=particles[i];
+        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle='rgba(201,163,91,0.5)';ctx.fill();
+        for(let j=i+1;j<particles.length;j++){
+          const q=particles[j],dist=Math.hypot(p.x-q.x,p.y-q.y);
+          if(dist<link){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);
+            ctx.strokeStyle='rgba(201,163,91,'+(0.14*(1-dist/link))+')';ctx.lineWidth=dpr;ctx.stroke();}
+        }
+      }
+    }
+
+    addEventListener('resize', ()=>{ resize(); if(reduce) staticFrame(); });
+    addEventListener('mousemove', e=>{ mouse.x=e.clientX*dpr; mouse.y=e.clientY*dpr; });
+    addEventListener('mouseout', ()=>{ mouse.x=mouse.y=null; });
+
+    resize();
+    if(reduce) staticFrame(); else draw();
+  })();
+
+  /* ===== Interactions & polish visuel ===== */
+  (function(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* 1. Apparition au défilement (reveal) */
+    const revealTargets = document.querySelectorAll(
+      '.section-title, .section-sub, .about-photo, .about-text, .skill-card, .tl-item, .proj, .contact h2, .contact p, .contact-links'
+    );
+    revealTargets.forEach((el,i)=>{
+      el.classList.add('reveal');
+      el.classList.add('d'+((i%3)+1)); // léger décalage en cascade
+    });
+    if('IntersectionObserver' in window && !reduce){
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+      },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+      revealTargets.forEach(el=>io.observe(el));
+    } else {
+      revealTargets.forEach(el=>el.classList.add('in'));
+    }
+
+    /* 2. Barre de progression + état du header */
+    const progress = document.getElementById('progress');
+    const nav = document.querySelector('header.nav');
+    function onScroll(){
+      const st = document.documentElement.scrollTop || document.body.scrollTop;
+      const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      progress.style.width = (h>0 ? (st/h)*100 : 0) + '%';
+      nav.classList.toggle('scrolled', st > 20);
+      updateActive();
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+
+    /* 3. Lien de navigation actif selon la section visible */
+    const navLinks = Array.from(document.querySelectorAll('nav.links a'));
+    const sections = navLinks
+      .map(a=>document.querySelector(a.getAttribute('href')))
+      .filter(Boolean);
+    function updateActive(){
+      const y = (window.scrollY || window.pageYOffset) + 120;
+      let current = sections[0];
+      sections.forEach(s=>{ if(s.offsetTop <= y) current = s; });
+      navLinks.forEach(a=>a.classList.toggle('active', current && a.getAttribute('href')==='#'+current.id));
+    }
+    onScroll();
+
+    /* 4. Effet de relief (tilt) sur les cartes — desktop uniquement */
+    if(!reduce && window.matchMedia('(hover:hover) and (min-width:861px)').matches){
+      document.querySelectorAll('.skill-card,.proj').forEach(card=>{
+        card.addEventListener('mousemove', e=>{
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left)/r.width - .5;
+          const py = (e.clientY - r.top)/r.height - .5;
+          card.style.transform = `perspective(700px) rotateX(${(-py*5).toFixed(2)}deg) rotateY(${(px*6).toFixed(2)}deg) translateY(-4px)`;
+        });
+        card.addEventListener('mouseleave', ()=>{ card.style.transform=''; });
+      });
+    }
+
+    /* 5. Révélation du titre du héro (effet machine à écrire léger) */
+    const hero = document.querySelector('.hero h1');
+    if(hero && !reduce){
+      const html = hero.innerHTML;            // conserve le <em>
+      const text = hero.textContent;
+      hero.innerHTML = '<span class="cursor"></span>';
+      let i = 0;
+      // on tape le texte brut puis on restaure le HTML stylé
+      const cursor = hero.querySelector('.cursor');
+      const tick = ()=>{
+        if(i <= text.length){
+          hero.textContent = text.slice(0,i);
+          hero.appendChild(cursor);
+          i++;
+          setTimeout(tick, 28);
+        } else {
+          hero.innerHTML = html; // remet le mot doré en place
+        }
+      };
+      setTimeout(tick, 300);
+    }
+  })();
+</script>
+
+</body>
+</html>
