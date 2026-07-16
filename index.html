@@ -118,6 +118,24 @@
   .contact p{color:var(--muted);max-width:520px;margin:0 auto 32px}
   .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
   footer{padding:32px 0;text-align:center;color:var(--muted);font-size:.85rem}
+
+  /* MODALE CV */
+  .cv-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
+    background:rgba(0,0,0,.72);backdrop-filter:blur(5px);padding:24px}
+  .cv-modal.open{display:flex}
+  .cv-modal-inner{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    width:min(920px,100%);height:min(90vh,1100px);display:flex;flex-direction:column;overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .cv-modal-head{display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:14px 20px;border-bottom:1px solid var(--line)}
+  .cv-modal-head h3{font-size:1rem;font-weight:600}
+  .cv-modal-head .actions{display:flex;align-items:center;gap:10px}
+  .cv-close{cursor:pointer;background:none;border:1px solid var(--line);color:var(--muted);
+    width:34px;height:34px;border-radius:8px;font-size:1.2rem;line-height:1;transition:.2s}
+  .cv-close:hover{color:var(--text);border-color:var(--accent)}
+  .cv-modal iframe{flex:1;width:100%;border:0;background:#fff}
+  .btn-sm{padding:8px 16px;font-size:.85rem}
+
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
   .reveal.d1{transition-delay:.08s}
@@ -175,7 +193,8 @@
     <p class="lead">Étudiant en BUT Science des Données (parcours VCOD), je conçois des pipelines, des analyses et des outils décisionnels fiables — de la base de données au tableau de bord. Python, SQL, Power BI et Talend au service de la donnée.</p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-      <a href="#contact" class="btn btn-ghost">Travaillons ensemble</a>
+      <button type="button" class="btn btn-ghost" onclick="openCV()">Consulter mon CV</button>
+      <a href="cv-thombet-kende-god-louange.pdf" download class="btn btn-ghost">Télécharger le CV</a>
     </div>
   </div>
 </section>
@@ -212,7 +231,9 @@
         <div class="icon">&lt;/&gt;</div>
         <h3>Langages</h3>
         <div class="tags">
-          <span class="tag">Python ★★★★</span>
+          <span class="tag">Python ★★★★ </span>
+          <span class="tag">Dart (flutter) ★★★★</span>
+          <span class="tag">JavaScript ★★★★ </span>
           <span class="tag">SQL / Oracle ★★★★</span>
           <span class="tag">R ★★★</span>
           <span class="tag">JavaScript</span>
@@ -417,9 +438,24 @@
       <a href="mailto:G-Louange.THOMBET-KENDE@etu.uca.fr" class="btn btn-primary">Envoyer un email</a>
       <a href="tel:+33749828548" class="btn btn-ghost">+33 7 49 82 85 48</a>
       <a href="https://github.com/GodLouange" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+      <a href="cv-thombet-kende-god-louange.pdf" download class="btn btn-ghost">Télécharger mon CV</a>
     </div>
   </div>
 </section>
+
+<!-- MODALE CONSULTATION CV -->
+<div class="cv-modal" id="cvModal" role="dialog" aria-modal="true" aria-label="Consultation du CV">
+  <div class="cv-modal-inner">
+    <div class="cv-modal-head">
+      <h3>CV — God-Louange Thombet-Kende</h3>
+      <div class="actions">
+        <a href="cv-thombet-kende-god-louange.pdf" download class="btn btn-primary btn-sm">Télécharger</a>
+        <button type="button" class="cv-close" onclick="closeCV()" aria-label="Fermer">&times;</button>
+      </div>
+    </div>
+    <iframe id="cvFrame" title="CV" src="about:blank"></iframe>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">© <span id="year"></span> God-Louange Thombet-Kende — Apprenti Data Analyst.</div>
@@ -427,6 +463,24 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ===== Consultation du CV (modale) ===== */
+  const CV_FILE = 'cv-thombet-kende-god-louange.pdf';
+  function openCV(){
+    const m = document.getElementById('cvModal');
+    const f = document.getElementById('cvFrame');
+    if(f.getAttribute('src') === 'about:blank') f.setAttribute('src', CV_FILE);
+    m.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCV(){
+    document.getElementById('cvModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('cvModal').addEventListener('click', e=>{
+    if(e.target.id === 'cvModal') closeCV();          // clic hors du cadre
+  });
+  document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeCV(); });
 
   (function(){
     const canvas = document.getElementById('bg-canvas');
