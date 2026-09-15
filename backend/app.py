@@ -29,7 +29,7 @@ ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "")
 CHAT_MODEL = os.environ.get("CHAT_MODEL", "gemini-3.6-flash")
 # Modèle de secours utilisé si CHAT_MODEL est surchargé (erreur 503) — un modèle "lite"
 # est généralement moins soumis à la forte demande du tier gratuit.
-CHAT_MODEL_FALLBACK = os.environ.get("CHAT_MODEL_FALLBACK", "gemini-2.5-flash-lite")
+CHAT_MODEL_FALLBACK = os.environ.get("CHAT_MODEL_FALLBACK", "gemini-3.5-flash-lite")
 # Origines autorisées à appeler ce backend (ton site GitHub Pages + dev local)
 ALLOWED_ORIGINS = [
     o.strip()
