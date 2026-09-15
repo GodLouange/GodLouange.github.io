@@ -12,6 +12,6 @@ services:
       - key: ADMIN_PASSWORD
         sync: false
       - key: CHAT_MODEL
-        value: gemini-2.5-flash
+        value: gemini-3.6-flash
       - key: ALLOWED_ORIGINS
         value: https://godlouange.github.io

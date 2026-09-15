@@ -25,7 +25,7 @@ DATA_PATH = BASE_DIR / "data" / "cv-data.json"
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "")
-CHAT_MODEL = os.environ.get("CHAT_MODEL", "gemini-2.5-flash")
+CHAT_MODEL = os.environ.get("CHAT_MODEL", "gemini-3.6-flash")
 # Origines autorisées à appeler ce backend (ton site GitHub Pages + dev local)
 ALLOWED_ORIGINS = [
     o.strip()
