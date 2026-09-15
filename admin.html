@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Mise à jour du CV</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  body{font-family:system-ui,sans-serif;max-width:560px;margin:60px auto;padding:0 20px;background:#0f1115;color:#e7eaf0}
+  h1{font-size:1.3rem;margin-bottom:6px}
+  p.sub{color:#9aa3b2;margin-bottom:28px}
+  label{display:block;margin:16px 0 6px;font-size:.9rem;color:#9aa3b2}
+  input[type=password],input[type=text]{width:100%;padding:10px;border-radius:8px;border:1px solid #262c38;background:#1a1f28;color:#e7eaf0}
+  input[type=file]{margin-top:6px}
+  button{margin-top:22px;padding:11px 22px;border-radius:999px;border:0;background:#c9a35b;color:#1a1407;font-weight:700;cursor:pointer}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  #status{margin-top:18px;font-size:.9rem;white-space:pre-wrap}
+  .ok{color:#7cd992}
+  .err{color:#f28b82}
+</style>
+</head>
+<body>
+  <h1>Mise à jour du CV du portfolio</h1>
+  <p class="sub">Cette page envoie un nouveau CV (PDF) au backend, qui l'analyse et met à jour automatiquement les compétences/expériences affichées sur le site. Page à usage personnel — ne pas partager le lien.</p>
+
+  <label for="backendUrl">URL du backend</label>
+  <input type="text" id="backendUrl" placeholder="https://ton-backend.onrender.com" value="">
+
+  <label for="pwd">Mot de passe admin</label>
+  <input type="password" id="pwd" placeholder="Mot de passe défini côté backend">
+
+  <label for="file">Fichier CV (PDF)</label>
+  <input type="file" id="file" accept="application/pdf">
+
+  <button id="submit">Envoyer et mettre à jour</button>
+  <div id="status"></div>
+
+<script>
+  const KEY = 'portfolio_backend_url';
+  const backendInput = document.getElementById('backendUrl');
+  backendInput.value = localStorage.getItem(KEY) || '';
+
+  document.getElementById('submit').addEventListener('click', async () => {
+    const backend = backendInput.value.trim().replace(/\/$/, '');
+    const pwd = document.getElementById('pwd').value;
+    const fileInput = document.getElementById('file');
+    const statusEl = document.getElementById('status');
+    statusEl.className = ''; statusEl.textContent = '';
+
+    if(!backend || !pwd || !fileInput.files.length){
+      statusEl.className = 'err';
+      statusEl.textContent = 'Renseigne l\'URL du backend, le mot de passe et un fichier PDF.';
+      return;
+    }
+    try{ localStorage.setItem(KEY, backend); }catch(e){}
+
+    const btn = document.getElementById('submit');
+    btn.disabled = true; statusEl.textContent = 'Envoi en cours…';
+
+    const form = new FormData();
+    form.append('file', fileInput.files[0]);
+
+    try{
+      const res = await fetch(backend + '/api/admin/upload-cv', {
+        method: 'POST',
+        headers: { 'X-Admin-Password': pwd },
+        body: form
+      });
+      const data = await res.json();
+      if(res.ok){
+        statusEl.className = 'ok';
+        statusEl.textContent = 'CV mis à jour avec succès. Le site affichera les nouvelles données au prochain chargement.';
+      } else {
+        statusEl.className = 'err';
+        statusEl.textContent = 'Erreur : ' + (data.error || res.status);
+      }
+    } catch(e){
+      statusEl.className = 'err';
+      statusEl.textContent = 'Impossible de contacter le backend : ' + e.message;
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>God-Louange Thombet-Kende — Développeur IA & Data</title>
-<meta name="description" content="Profil professionnel de God-Louange Thombet-Kende, futur Développeur IA (Mastère Lead Développeur IA — EEMI). Data, backend, agents IA. Compétences, parcours et projets, avec chatbot intégré.">
+<title>God-Louange Thombet-Kende — Data Analyst</title>
+<meta name="description" content="Profil professionnel de God-Louange Thombet-Kende, apprenti Data Analyst (BUT Science des Données). Python, SQL, Power BI, Talend ETL, R. Compétences, parcours et projets data.">
 <style>
   :root{
     --bg:#0f1115;
@@ -157,43 +157,6 @@
     .reveal{opacity:1;transform:none;transition:none}
     .hero h1 .cursor{display:none}
   }
-
-  /* ===== Chatbot widget ===== */
-  #chatToggle{position:fixed;right:22px;bottom:22px;z-index:80;width:58px;height:58px;border-radius:50%;
-    background:var(--accent);color:#1a1407;border:0;cursor:pointer;font-size:1.5rem;
-    box-shadow:0 14px 34px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;
-    transition:transform .2s}
-  #chatToggle:hover{transform:scale(1.06)}
-  #chatToggle .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#4ade80;border:2px solid var(--bg)}
-  #chatPanel{position:fixed;right:22px;bottom:92px;z-index:80;width:min(370px,calc(100vw - 44px));
-    height:min(520px,calc(100vh - 140px));background:var(--card);border:1px solid var(--line);
-    border-radius:16px;display:none;flex-direction:column;overflow:hidden;
-    box-shadow:0 30px 70px rgba(0,0,0,.55)}
-  #chatPanel.open{display:flex}
-  #chatHead{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
-  #chatHead .av{width:34px;height:34px;border-radius:50%;background:rgba(201,163,91,.15);color:var(--accent);
-    display:flex;align-items:center;justify-content:center;font-weight:700}
-  #chatHead .meta{flex:1}
-  #chatHead .meta b{display:block;font-size:.92rem}
-  #chatHead .meta span{display:block;font-size:.76rem;color:var(--muted)}
-  #chatClose{background:none;border:0;color:var(--muted);cursor:pointer;font-size:1.2rem;padding:4px}
-  #chatBody{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:10px}
-  .msg{max-width:86%;padding:10px 13px;border-radius:12px;font-size:.88rem;line-height:1.45;white-space:pre-wrap}
-  .msg.bot{align-self:flex-start;background:var(--bg-soft);border:1px solid var(--line);color:var(--text)}
-  .msg.user{align-self:flex-end;background:var(--accent);color:#1a1407;font-weight:500}
-  .msg.typing{align-self:flex-start;color:var(--muted);font-style:italic}
-  #chatForm{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
-  #chatInput{flex:1;background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;
-    padding:10px 14px;color:var(--text);font-size:.88rem;font-family:var(--font)}
-  #chatInput:focus{outline:none;border-color:var(--accent)}
-  #chatSend{background:var(--accent);color:#1a1407;border:0;border-radius:999px;width:38px;height:38px;
-    cursor:pointer;font-weight:700;flex:0 0 auto}
-  #chatSend:disabled{opacity:.5;cursor:not-allowed}
-  @media(max-width:480px){
-    #chatPanel{right:12px;left:12px;width:auto;bottom:86px}
-    #chatToggle{right:16px;bottom:16px}
-  }
-
   @media(max-width:860px){
     .about-grid{grid-template-columns:1fr;gap:32px}
     .skills-grid{grid-template-columns:1fr}
@@ -225,14 +188,13 @@
 
 <section class="hero">
   <div class="wrap hero-inner">
-    <p class="eyebrow">Développeur IA · Data & Backend</p>
-    <h1>Je transforme la donnée et des idées en <em>produits intelligents</em>.</h1>
-    <p class="lead">En Mastère Lead Développeur IA (EEMI) après un BUT Science des Données, je construis des outils décisionnels, des applications backend et des agents IA robustes — de la base de données au produit livré. Python, SQL, Power BI, Django/FastAPI et IA appliquée.</p>
-    <p class="lead" style="margin-top:-24px;font-size:.95rem">💬 Une question sur mon profil ? Discutez-en avec mon assistant IA en bas à droite.</p>
+    <p class="eyebrow">Apprenti Data Analyst · Développeur Full-Stack</p>
+    <h1>Je transforme la donnée et des idées en <em>décisions & application</em>.</h1>
+    <p class="lead">Étudiant en BUT Science des Données (parcours VCOD), je conçois des pipelines, des analyses et des outils décisionnels fiables — de la base de données au tableau de bord. Python, SQL, Power BI et Talend au service de la donnée.</p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">Voir mes projets</a>
       <button type="button" class="btn btn-ghost" onclick="openCV()">Consulter mon CV</button>
-      <a href="cv-god-louange-2026.pdf" download class="btn btn-ghost">Télécharger le CV</a>
+      <a href="cv-thombet-kende-god-louange.pdf" download class="btn btn-ghost">Télécharger le CV</a>
     </div>
   </div>
 </section>
@@ -246,14 +208,14 @@
         <img src="god.jpg" alt="God-Louange au travail">
       </div>
       <div class="about-text">
-        <p id="aboutP1">Je suis <strong>God-Louange Thombet-Kende</strong>, actuellement en première année du <strong>Mastère Lead Développeur IA</strong> à l'EEMI (Paris), après un BUT Science des Données (parcours VCOD) à l'IUT d'Aurillac. Je construis un profil hybride entre développement logiciel, data et IA appliquée, et je recherche une <strong>alternance de 12 mois</strong> pour la rentrée 2026.</p>
-        <p id="aboutP2">Mon parcours combine une base solide en développement full-stack et administration de bases de données (Brazzaville) et une spécialisation data en France : <strong>Python, SQL, Power BI</strong>. Lors de mon stage au Stade Aurillacois, j'ai conçu de bout en bout un tableau de bord d'aide à la décision, du recueil du besoin jusqu'à la restitution aux décideurs.</p>
-        <p id="aboutP3">Je souhaite aujourd'hui approfondir l'architecture logicielle moderne, les APIs IA et les agents IA pour construire des produits data/IA robustes — avec rigueur, autonomie et curiosité technique.</p>
-        <div class="facts" id="aboutFacts">
-          <div class="fact"><div class="k">Recherche</div><div class="v">Alternance Développeur IA — 12 mois</div></div>
-          <div class="fact"><div class="k">Localisation</div><div class="v">Aurillac · Mobile en France</div></div>
-          <div class="fact"><div class="k">Langues</div><div class="v">Français courant · Anglais courant</div></div>
-          <div class="fact"><div class="k">Focus</div><div class="v">IA · Data · Backend</div></div>
+        <p>Je suis <strong>God-Louange Thombet-Kende</strong>, étudiant en <strong>BUT 3 Science des Données</strong> (parcours VCOD — Visualisation & Conception d'Outils Décisionnels) à l'IUT d'Aurillac, en recherche d'alternance comme <strong>Data Analyst</strong>.</p>
+        <p>Mes deux expériences en développement Python/Django et en administration de bases Oracle/SQL Server m'ont appris à manipuler la donnée de bout en bout : extraction, traitement, restitution. Je les complète d'une pratique solide de <strong>SQL, R, Power BI et Talend ETL</strong> acquise en formation.</p>
+        <p>Rigueur, autonomie et curiosité technique guident ma façon de travailler — du recueil du besoin jusqu'à la livraison d'un outil décisionnel fiable.</p>
+        <div class="facts">
+          <div class="fact"><div class="k">Recherche</div><div class="v">Alternance Data Analyst / Développeur fullstack</div></div>
+          <div class="fact"><div class="k">Localisation</div><div class="v">Aurillac · Mobilité Paris</div></div>
+          <div class="fact"><div class="k">Langues</div><div class="v">Français natif · Anglais B1</div></div>
+          <div class="fact"><div class="k">Focus</div><div class="v">Data · Analytics · BI</div></div>
         </div>
       </div>
     </div>
@@ -263,8 +225,8 @@
 <section id="skills" style="background:rgba(22,26,33,.72)">
   <div class="wrap">
     <h2 class="section-title"><span class="num">02</span>Compétences</h2>
-    <p class="section-sub" id="skillsSub">Les technologies et savoir-faire sur lesquels je m'appuie au quotidien. <span id="skillsUpdated" style="opacity:.7"></span></p>
-    <div class="skills-grid" id="skillsGrid" data-dynamic="true">
+    <p class="section-sub">Les technologies et savoir-faire sur lesquels je m'appuie au quotidien.</p>
+    <div class="skills-grid">
       <div class="skill-card">
         <div class="icon">&lt;/&gt;</div>
         <h3>Langages</h3>
@@ -320,16 +282,16 @@
     <p class="section-sub">Mes expériences professionnelles et ma formation.</p>
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-date">2026 — 2028</div>
-        <h3>Mastère Lead Développeur IA</h3>
-        <div class="org">EEMI, Paris · + Certification RNCP 38822 (niveau 7, INGETIS)</div>
-        <p>Architecture logicielle moderne & microservices, IA avancée & APIs IA, backend/front avancé, agents IA et projet produit, tests/qualité/CI, product management et UX produit.</p>
+        <div class="tl-date">Jan – Juil 2025</div>
+        <h3>Développeur Web Full-Stack — Projets Data & Backend</h3>
+        <div class="org">CIRAS — Centre d'Informatique de Recherche · Brazzaville</div>
+        <p>Développement d'applications data-driven en Python/Django et SQL : intégration, traitement et restitution de données métier. Conception de requêtes SQL complexes pour l'extraction et la consolidation multi-sources. Tests fonctionnels, correction de bugs et livraison de modules en production, en équipe pluridisciplinaire.</p>
       </div>
       <div class="tl-item">
-        <div class="tl-date">Avril – Juin 2026</div>
-        <h3>Analyse de données sportives — Stage</h3>
-        <div class="org">Stade Aurillacois</div>
-        <p>Conception et développement d'un tableau de bord interactif d'aide à la décision (Python, Streamlit), de l'architecture des données à l'interface utilisateur. Consolidation de données multi-sources (GPS, vidéo), pilotage d'indicateurs de performance et restitution aux décideurs.</p>
+        <div class="tl-date">Juin – Oct 2024</div>
+        <h3>Administrateur Assistant de Bases de Données — Oracle & SQL Server</h3>
+        <div class="org">CFI-CIRAS — Centre de Formation en Informatique · Brazzaville</div>
+        <p>Administration et optimisation de bases Oracle et SQL Server : tuning de requêtes, indexation, performance. Modélisation et évolution du modèle de données, gestion des utilisateurs et des droits d'accès. Support utilisateurs sur les applications métier, dans une logique Business-As-Usual (BAU).</p>
       </div>
       <div class="tl-item">
         <div class="tl-date">2025 — 2026</div>
@@ -338,16 +300,10 @@
         <p>Outils décisionnels, ETL, Python, R, SQL, Power BI, statistiques et machine learning.</p>
       </div>
       <div class="tl-item">
-        <div class="tl-date">Jan – Juin 2025</div>
-        <h3>Développement logiciel et administration de base de données</h3>
-        <div class="org">CIRAS · Brazzaville</div>
-        <p>Développement d'applications web (JavaScript, C#, Django) à partir du recueil des besoins métier. Administration et optimisation de bases Oracle : requêtage SQL, structuration et stockage. Documentation technique et fonctionnelle, coordination avec les équipes applicatives.</p>
-      </div>
-      <div class="tl-item">
         <div class="tl-date">2021 — 2024</div>
         <h3>Licence Professionnelle Informatique de Gestion</h3>
-        <div class="org">CFI-CIRAS · Brazzaville</div>
-        <p>Développement logiciel, bases de données, systèmes d'information et réseaux. Certifications Cisco IT Essentials, CCNA 1 & CCNA 2 · Anglais courant.</p>
+        <div class="org">Université CFI-CIRAS · Brazzaville</div>
+        <p>Développement logiciel, bases de données, systèmes d'information et réseaux. Certifications Cisco IT Essentials & CCNA · Anglais B1.</p>
       </div>
     </div>
   </div>
@@ -481,7 +437,7 @@
       <a href="mailto:G-Louange.THOMBET-KENDE@etu.uca.fr" class="btn btn-primary">Envoyer un email</a>
       <a href="tel:+33749828548" class="btn btn-ghost">+33 7 49 82 85 48</a>
       <a href="https://github.com/GodLouange" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
-      <a href="cv-god-louange-2026.pdf" download class="btn btn-ghost">Télécharger mon CV</a>
+      <a href="cv-thombet-kende-god-louange.pdf" download class="btn btn-ghost">Télécharger mon CV</a>
     </div>
   </div>
 </section>
@@ -492,30 +448,12 @@
     <div class="cv-modal-head">
       <h3>CV — God-Louange Thombet-Kende</h3>
       <div class="actions">
-        <a href="cv-god-louange-2026.pdf" download class="btn btn-primary btn-sm">Télécharger</a>
+        <a href="cv-thombet-kende-god-louange.pdf" download class="btn btn-primary btn-sm">Télécharger</a>
         <button type="button" class="cv-close" onclick="closeCV()" aria-label="Fermer">&times;</button>
       </div>
     </div>
     <iframe id="cvFrame" title="CV" src="about:blank"></iframe>
   </div>
-</div>
-
-
-<!-- CHATBOT -->
-<button id="chatToggle" aria-label="Ouvrir le chat" title="Discuter avec l'assistant IA">
-  💬<span class="dot"></span>
-</button>
-<div id="chatPanel" role="dialog" aria-modal="false" aria-label="Assistant du portfolio">
-  <div id="chatHead">
-    <div class="av">IA</div>
-    <div class="meta"><b>Assistant de God-Louange</b><span>Répond à partir de son profil</span></div>
-    <button id="chatClose" aria-label="Fermer le chat">&times;</button>
-  </div>
-  <div id="chatBody"></div>
-  <form id="chatForm">
-    <input id="chatInput" type="text" autocomplete="off" placeholder="Pose une question sur son profil…" maxlength="500">
-    <button id="chatSend" type="submit" aria-label="Envoyer">➤</button>
-  </form>
 </div>
 
 <footer>
@@ -526,7 +464,7 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   /* ===== Consultation du CV (modale) ===== */
-  const CV_FILE = 'cv-god-louange-2026.pdf';
+  const CV_FILE = 'cv-thombet-kende-god-louange.pdf';
   function openCV(){
     const m = document.getElementById('cvModal');
     const f = document.getElementById('cvFrame');
@@ -669,131 +607,6 @@
       };
       setTimeout(tick, 300);
     }
-  })();
-</script>
-
-
-<script>
-  /* ================== Configuration backend ================== */
-  /* Remplace cette URL par celle de ton backend Render une fois déployé,
-     ex: "https://godlouange-portfolio-backend.onrender.com" */
-  const BACKEND_URL = (localStorage.getItem('portfolio_backend_url') || '').replace(/\/$/, '')
-    || 'https://REMPLACE-PAR-TON-URL-RENDER.onrender.com';
-
-  /* ================== Compétences dynamiques (depuis le CV) ================== */
-  const SKILL_ICONS = ['</>', '▤', '⚙', '✦', '★', '◆'];
-  function renderSkills(skills){
-    const grid = document.getElementById('skillsGrid');
-    if(!grid || !skills) return;
-    grid.innerHTML = '';
-    Object.entries(skills).forEach(([category, items], i)=>{
-      const card = document.createElement('div');
-      card.className = 'skill-card';
-      const icon = document.createElement('div');
-      icon.className = 'icon';
-      icon.textContent = SKILL_ICONS[i % SKILL_ICONS.length];
-      const h3 = document.createElement('h3');
-      h3.textContent = category;
-      const tags = document.createElement('div');
-      tags.className = 'tags';
-      (items || []).forEach(item=>{
-        const span = document.createElement('span');
-        span.className = 'tag';
-        span.textContent = item;
-        tags.appendChild(span);
-      });
-      card.appendChild(icon); card.appendChild(h3); card.appendChild(tags);
-      grid.appendChild(card);
-    });
-  }
-
-  async function loadCvData(){
-    if(!BACKEND_URL || BACKEND_URL.includes('REMPLACE-PAR-TON-URL')) return;
-    try{
-      const res = await fetch(BACKEND_URL + '/api/cv-data', { cache: 'no-store' });
-      if(!res.ok) return;
-      const data = await res.json();
-      if(data && data.skills) renderSkills(data.skills);
-      const upd = document.getElementById('skillsUpdated');
-      if(upd && data.updated_at){
-        const d = new Date(data.updated_at);
-        upd.textContent = '· mis à jour le ' + d.toLocaleDateString('fr-FR');
-      }
-    }catch(e){
-      console.warn('Chargement des données CV impossible, affichage du contenu statique.', e);
-    }
-  }
-  loadCvData();
-
-  /* ================== Chatbot ================== */
-  (function(){
-    const toggle = document.getElementById('chatToggle');
-    const panel = document.getElementById('chatPanel');
-    const closeBtn = document.getElementById('chatClose');
-    const form = document.getElementById('chatForm');
-    const input = document.getElementById('chatInput');
-    const body = document.getElementById('chatBody');
-    const sendBtn = document.getElementById('chatSend');
-    let history = [];
-    let opened = false;
-
-    function addMsg(role, text){
-      const el = document.createElement('div');
-      el.className = 'msg ' + (role === 'user' ? 'user' : 'bot');
-      el.textContent = text;
-      body.appendChild(el);
-      body.scrollTop = body.scrollHeight;
-      return el;
-    }
-
-    function openPanel(){
-      panel.classList.add('open');
-      if(!opened){
-        opened = true;
-        addMsg('bot', "Bonjour 👋 Je suis l'assistant de God-Louange. Posez-moi une question sur son profil, ses compétences ou ses disponibilités pour une alternance.");
-      }
-      input.focus();
-    }
-    toggle.addEventListener('click', openPanel);
-    closeBtn.addEventListener('click', ()=> panel.classList.remove('open'));
-
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const message = input.value.trim();
-      if(!message) return;
-      if(!BACKEND_URL || BACKEND_URL.includes('REMPLACE-PAR-TON-URL')){
-        addMsg('user', message);
-        addMsg('bot', "Le chatbot n'est pas encore connecté à un serveur. (Configuration en attente.)");
-        input.value = '';
-        return;
-      }
-      addMsg('user', message);
-      input.value = '';
-      sendBtn.disabled = true;
-      const typing = addMsg('bot', '…');
-      typing.classList.add('typing');
-      try{
-        const res = await fetch(BACKEND_URL + '/api/chat', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({ message, history })
-        });
-        const data = await res.json();
-        typing.remove();
-        if(res.ok){
-          addMsg('bot', data.reply);
-          history.push({role:'user', content: message});
-          history.push({role:'assistant', content: data.reply});
-        } else {
-          addMsg('bot', data.error || "Une erreur est survenue, réessaie dans un instant.");
-        }
-      }catch(err){
-        typing.remove();
-        addMsg('bot', "Impossible de contacter le serveur pour le moment. Réessaie un peu plus tard, ou contacte-moi directement par email.");
-      } finally {
-        sendBtn.disabled = false;
-      }
-    });
   })();
 </script>
 

@@ -1,0 +1,123 @@
+{
+  "identity": {
+    "full_name": "God-Louange Thombet-Kende",
+    "title": "Développeur IA — Data, Backend & Produits Intelligents",
+    "search": "Alternance — Mastère Lead Développeur IA (EEMI), rentrée 2026",
+    "location": "Aurillac, France",
+    "mobility": "Mobile en France · Permis B en cours",
+    "phone": "07 49 82 85 48",
+    "email": "godlouange.thombetkende6801@gmail.com",
+    "github": "https://github.com/GodLouange",
+    "portfolio": "https://godlouange.github.io",
+    "languages": "Français — Courant · Anglais — Courant"
+  },
+  "positioning": "Actuellement en première année du Mastère Lead Développeur IA à l'EEMI après un BUT Science des Données, je construis un profil hybride entre développement logiciel, data et IA appliquée. Mon parcours combine une base solide en développement full-stack et administration de bases de données (Brazzaville) et une spécialisation data en France : Python, SQL, Power BI. Lors de mon stage au Stade Aurillacois, j'ai conçu de bout en bout un tableau de bord d'aide à la décision (Python, Streamlit), du recueil du besoin jusqu'à la restitution aux décideurs. Je souhaite aujourd'hui approfondir l'architecture logicielle moderne, les APIs IA et les agents IA pour construire des produits data/IA robustes.",
+  "skills": {
+    "Data & Analyse": [
+      "Python (Pandas, NumPy, Scikit-Learn, TensorFlow/PyTorch)",
+      "SQL / Oracle / PostgreSQL",
+      "Power BI (DAX, Power Query)",
+      "Streamlit",
+      "Talend ETL"
+    ],
+    "Développement & Backend": [
+      "JavaScript, C#, PHP, Django",
+      "FastAPI / JWT",
+      "Administration bases de données Oracle"
+    ],
+    "Outils & Méthodes": [
+      "Git / GitHub / CI-CD",
+      "Docker / Kubernetes (notions)",
+      "Pilotage de projet Agile",
+      "Sécurité : JWT, OAuth2, privilèges Oracle"
+    ],
+    "En cours d'approfondissement (EEMI 2026-2028)": [
+      "Architecture moderne & microservices",
+      "IA avancée & APIs IA",
+      "Backend / Front avancé, no-code, automatisation",
+      "Agents IA & projet produit",
+      "Tests, qualité, performance, intégration continue",
+      "Product management, UX produit, Agile avancé"
+    ]
+  },
+  "experiences_pro": [
+    {
+      "date": "Avril – Juin 2026",
+      "title": "Analyse de données sportives",
+      "org": "Stade Aurillacois",
+      "bullets": [
+        "Conception et développement d'un tableau de bord interactif d'aide à la décision (Python, Streamlit), de l'architecture des données à l'interface utilisateur",
+        "Recueil du besoin auprès du staff opérationnel et traduction en spécifications fonctionnelles et techniques",
+        "Consolidation de données multi-sources (GPS, vidéo) : ingestion, structuration, analyses descriptives, temporelles et spatiales",
+        "Pilotage d'indicateurs de performance individuels et collectifs, avec suivi de saison et analyses multi-matchs",
+        "Restitution visuelle des indicateurs aux décideurs pour orienter les choix stratégiques"
+      ]
+    },
+    {
+      "date": "Janvier – Juin 2025",
+      "title": "Développement logiciel et administration de base de données",
+      "org": "CIRAS · Brazzaville",
+      "bullets": [
+        "Conception et développement d'applications web (JavaScript, C#, Django) à partir du recueil des besoins métier",
+        "Administration et optimisation de bases de données Oracle : requêtage SQL, structuration et stockage des données",
+        "Rédaction de documentation technique et fonctionnelle, coordination avec les équipes applicatives"
+      ]
+    }
+  ],
+  "experiences_complementaires": [
+    {
+      "date": "Depuis environ 10 mois (en cours)",
+      "title": "Équipier polyvalent",
+      "org": "McDonald's · Aurillac",
+      "logo": "mcdonalds.png",
+      "bullets": [
+        "Polyvalence sur les postes de production, service et caisse dans un environnement à forte cadence",
+        "Rigueur, gestion des priorités et travail d'équipe en contexte exigeant"
+      ]
+    },
+    {
+      "date": "1 mois",
+      "title": "Aide chauffeur",
+      "org": "Boissier Blanchisserie",
+      "bullets": [
+        "Appui aux tournées de livraison et collecte, organisation logistique des dépôts clients",
+        "Relation client de proximité et respect des plannings de tournée"
+      ]
+    }
+  ],
+  "formations": [
+    {
+      "date": "2026-2028",
+      "title": "Certification professionnelle niveau 7 (RNCP 38822) « Expert en architecture et développement logiciel »",
+      "org": "INGETIS"
+    },
+    {
+      "date": "2026-2028",
+      "title": "Mastère Lead Développeur IA",
+      "org": "EEMI, Paris"
+    },
+    {
+      "date": "2025-2026",
+      "title": "BUT en Science de données",
+      "org": "IUT Clermont Auvergne, site d'Aurillac"
+    },
+    {
+      "date": "2021-2024",
+      "title": "Licence professionnelle en informatique de gestion",
+      "org": "CFI - CIRAS, Congo Brazzaville"
+    },
+    {
+      "date": "2021-2024",
+      "title": "Certification réseau IT Essentials, CCNA 1, CCNA 2",
+      "org": "Plateforme Cisco Networking Academy"
+    }
+  ],
+  "interests": [
+    "Développement logiciel & agents IA",
+    "Analyse de data rugby / football",
+    "Football amateur",
+    "Piano"
+  ],
+  "updated_at": "2026-09-15T00:00:00Z",
+  "source": "manual"
+}
