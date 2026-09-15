@@ -12,6 +12,7 @@ Utilise l'API Google Gemini (tier gratuit, pas de carte bancaire requise) via go
 """
 import json
 import os
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -26,6 +27,9 @@ DATA_PATH = BASE_DIR / "data" / "cv-data.json"
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "")
 CHAT_MODEL = os.environ.get("CHAT_MODEL", "gemini-3.6-flash")
+# Modèle de secours utilisé si CHAT_MODEL est surchargé (erreur 503) — un modèle "lite"
+# est généralement moins soumis à la forte demande du tier gratuit.
+CHAT_MODEL_FALLBACK = os.environ.get("CHAT_MODEL_FALLBACK", "gemini-2.5-flash-lite")
 # Origines autorisées à appeler ce backend (ton site GitHub Pages + dev local)
 ALLOWED_ORIGINS = [
     o.strip()
@@ -50,6 +54,29 @@ def get_client():
             raise RuntimeError("GEMINI_API_KEY manquante côté serveur.")
         _client = genai.Client(api_key=GEMINI_API_KEY)
     return _client
+
+
+def _is_retryable(exc: Exception) -> bool:
+    """503 (surcharge temporaire) et 429 (quota atteint) valent la peine d'être retentés."""
+    msg = str(exc)
+    return "503" in msg or "UNAVAILABLE" in msg or "429" in msg or "RESOURCE_EXHAUSTED" in msg
+
+
+def generate_with_retry(client, contents, config, max_retries=2):
+    """Appelle Gemini avec 2 tentatives sur le modèle principal (backoff court), puis
+    bascule sur le modèle de secours si le modèle principal reste surchargé."""
+    last_exc = None
+    for model in (CHAT_MODEL, CHAT_MODEL_FALLBACK):
+        for attempt in range(max_retries):
+            try:
+                return client.models.generate_content(model=model, contents=contents, config=config)
+            except Exception as exc:  # noqa: BLE001
+                last_exc = exc
+                if not _is_retryable(exc):
+                    raise
+                time.sleep(0.6 * (attempt + 1))
+        # le modèle principal a échoué max_retries fois -> on essaie le modèle de secours
+    raise last_exc
 
 
 def load_cv_data() -> dict:
@@ -124,16 +151,15 @@ def chat():
 
     try:
         client = get_client()
-        response = client.models.generate_content(
-            model=CHAT_MODEL,
-            contents=contents,
+        response = generate_with_retry(
+            client, contents,
             config={"system_instruction": system_prompt, "max_output_tokens": 500},
         )
         reply = (response.text or "").strip()
         if not reply:
             raise RuntimeError("réponse vide du modèle")
     except Exception as exc:  # noqa: BLE001 - on veut renvoyer une erreur lisible au frontend
-        return jsonify({"error": f"Le chatbot est momentanément indisponible ({exc})"}), 502
+        return jsonify({"error": f"Le chatbot est momentanément indisponible, réessaie dans quelques secondes ({exc})"}), 502
 
     return jsonify({"reply": reply})
 
@@ -183,8 +209,8 @@ avant ou après le JSON, pas de balises markdown."""
 
     try:
         client = get_client()
-        response = client.models.generate_content(
-            model=CHAT_MODEL,
+        response = generate_with_retry(
+            client,
             contents=[{"role": "user", "parts": [{"text": extraction_prompt}]}],
             config={"max_output_tokens": 4000, "response_mime_type": "application/json"},
         )
