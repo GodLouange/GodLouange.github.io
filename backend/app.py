@@ -62,14 +62,26 @@ def _is_retryable(exc: Exception) -> bool:
     return "503" in msg or "UNAVAILABLE" in msg or "429" in msg or "RESOURCE_EXHAUSTED" in msg
 
 
+def _speed_config_for(model: str) -> dict:
+    """Désactive/réduit le 'raisonnement' interne du modèle pour minimiser la latence :
+    inutile pour un chatbot de FAQ basé sur un profil fixe. Le nom du paramètre dépend
+    de la génération du modèle (Gemini 3 : thinking_level, Gemini 2.5 : thinking_budget)."""
+    if "gemini-3" in model:
+        return {"thinking_config": {"thinking_level": "minimal"}}
+    if "flash" in model and "lite" not in model:
+        return {"thinking_config": {"thinking_budget": 0}}
+    return {}
+
+
 def generate_with_retry(client, contents, config, max_retries=2):
     """Appelle Gemini avec 2 tentatives sur le modèle principal (backoff court), puis
     bascule sur le modèle de secours si le modèle principal reste surchargé."""
     last_exc = None
     for model in (CHAT_MODEL, CHAT_MODEL_FALLBACK):
+        model_config = {**config, **_speed_config_for(model)}
         for attempt in range(max_retries):
             try:
-                return client.models.generate_content(model=model, contents=contents, config=config)
+                return client.models.generate_content(model=model, contents=contents, config=model_config)
             except Exception as exc:  # noqa: BLE001
                 last_exc = exc
                 if not _is_retryable(exc):
